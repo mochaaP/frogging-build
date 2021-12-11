@@ -1,0 +1,9 @@
+#!/bin/sh
+
+docker buildx build $1 -t frogging-build/$1:latest
+
+docker create --name frogging-$1 frogging-build/$1:latest
+
+docker cp frogging-$1:/dist .
+
+docker rm -f frogging-$1
