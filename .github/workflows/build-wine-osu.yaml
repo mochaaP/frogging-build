@@ -1,0 +1,19 @@
+name: build-wine-osu
+
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile
+        run: ./build.sh wine wine-tkg-osu
+      - name: Archive the artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: dist
