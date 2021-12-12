@@ -11,8 +11,7 @@ RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
 WORKDIR /workspace
 USER builder
 
-RUN wget -O- https://github.com/Frogging-Family/community-patches/archive/refs/heads/master.tar.gz | tar xzvf - && \
-    mv community-patches-master community-patches
+RUN git clone https://github.com/Frogging-Family/community-patches.git --depth=1
 
 RUN wget -O- https://github.com/Frogging-Family/wine-tkg-git/archive/refs/heads/master.tar.gz | tar xzvf - && \
     mv wine-tkg-git-master wine-tkg-git
