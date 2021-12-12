@@ -16,4 +16,4 @@ jobs:
       - name: Archive the artifacts
         uses: actions/upload-artifact@v2
         with:
-          path: dist
+          path: dist/*.pkg.tar.zst
