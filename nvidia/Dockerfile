@@ -1,5 +1,7 @@
 FROM archlinux:latest
 
+ARG BUILD_CONFIG=nvidia-all.cfg
+
 RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
     pacman -Sy fakeroot wget binutils --noconfirm --needed && \
     pacman -S --clean --noconfirm && \
@@ -15,6 +17,6 @@ RUN wget -O- https://github.com/Frogging-Family/nvidia-all/archive/refs/heads/ma
 
 WORKDIR /workspace/nvidia-all
 
-COPY nvidia-all.cfg /workspace/.config/frogminer/
+COPY $BUILD_CONFIG /workspace/.config/frogminer/nvidia-all.cfg
 
 RUN PKGDEST=/dist makepkg -rc

@@ -1,5 +1,7 @@
 FROM archlinux:latest
 
+ARG BUILD_CONFIG=linux-tkg.cfg
+
 RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
     pacman -Sy base-devel bison xmlto docbook-xsl kmod inetutils bc libelf pahole patchutils flex python-sphinx python-sphinx_rtd_theme graphviz imagemagick git cpio perl tar xz wget schedtool --noconfirm --needed && \
     pacman -S --clean --noconfirm && \
@@ -19,6 +21,6 @@ RUN wget -O- https://github.com/Frogging-Family/linux-tkg/archive/refs/heads/mas
 
 WORKDIR /workspace/linux-tkg
 
-COPY linux-tkg.cfg /workspace/.config/frogminer/
+COPY $BUILD_CONFIG /workspace/.config/frogminer/linux-tkg.cfg
 
 RUN PKGDEST=/dist makepkg -rc
