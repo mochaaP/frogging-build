@@ -1,4 +1,4 @@
-FROM archlinux:latest AS build
+FROM archlinux:latest
 
 RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
     echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf && \

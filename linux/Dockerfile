@@ -1,4 +1,4 @@
-FROM archlinux:latest AS build
+FROM archlinux:latest
 
 RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
     pacman -Sy base-devel bison xmlto docbook-xsl kmod inetutils bc libelf pahole patchutils flex python-sphinx python-sphinx_rtd_theme graphviz imagemagick git cpio perl tar xz wget schedtool --noconfirm --needed && \
