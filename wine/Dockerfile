@@ -20,5 +20,4 @@ WORKDIR /workspace/wine-tkg-git/wine-tkg-git
 
 COPY wine-tkg.cfg /workspace/.config/frogminer/
 
-RUN makepkg -rc && \
-    mv *.pkg.tar.zst /dist
+RUN PKGDEST=/dist makepkg -rc

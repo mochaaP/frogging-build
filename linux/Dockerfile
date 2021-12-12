@@ -21,5 +21,4 @@ WORKDIR /workspace/linux-tkg
 
 COPY linux-tkg.cfg /workspace/.config/frogminer/
 
-RUN makepkg -rc && \
-    mv *.pkg.tar.zst /dist
+RUN PKGDEST=/dist makepkg -rc

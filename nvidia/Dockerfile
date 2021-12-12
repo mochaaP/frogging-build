@@ -17,5 +17,4 @@ WORKDIR /workspace/nvidia-all
 
 COPY nvidia-all.cfg /workspace/.config/frogminer/
 
-RUN makepkg -rc && \
-    mv *.pkg.tar.zst /dist
+RUN PKGDEST=/dist makepkg -rc
