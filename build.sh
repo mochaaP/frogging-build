@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ -e $1/$2.cfg ]]; then
   docker buildx build $1 -t frogging-build/$1:latest --build-arg BUILD_CONFIG=$2.cfg
