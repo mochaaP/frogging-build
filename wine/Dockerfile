@@ -23,3 +23,5 @@ WORKDIR /workspace/wine-tkg-git/wine-tkg-git
 COPY $BUILD_CONFIG /workspace/.config/frogminer/wine-tkg.cfg
 
 RUN PKGDEST=/dist makepkg -rc
+
+RUN if compgen -G "*.deb" > /dev/null; then mv *.deb /dist; fi # Workaround .deb packages
