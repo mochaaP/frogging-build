@@ -27,4 +27,4 @@ jobs:
       - name: Archive the artifacts
         uses: actions/upload-artifact@v2
         with:
-        path: dist/*.deb
+          path: dist/*.deb
