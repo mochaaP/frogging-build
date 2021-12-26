@@ -17,6 +17,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: dist/*.pkg.tar.zst
+          name: wine-pkg
   build-deb:
     runs-on: ubuntu-latest
 
@@ -28,3 +29,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: dist/*.deb
+          name: wine-deb
