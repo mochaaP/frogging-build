@@ -21,6 +21,7 @@ RUN wget -O- https://github.com/Frogging-Family/wine-tkg-git/archive/refs/heads/
 WORKDIR /workspace/wine-tkg-git/wine-tkg-git
 
 COPY $BUILD_CONFIG /workspace/.config/frogminer/wine-tkg.cfg
+COPY patch/* wine-tkg-userpatches/
 
 RUN PKGDEST=/dist makepkg -rc
 
