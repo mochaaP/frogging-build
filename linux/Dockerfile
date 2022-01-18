@@ -12,14 +12,12 @@ RUN echo "ParallelDownloads = 5" | tee -a /etc/pacman.conf && \
 WORKDIR /workspace
 USER builder
 
-RUN wget -O- https://github.com/Frogging-Family/community-patches/archive/refs/heads/master.tar.gz | tar xzvf - && \
+RUN wget -O- https://github.com/Frogging-Family/community-patches/archive/master.tar.gz | tar xzvf - && \
     mv community-patches-master community-patches
 
 
-RUN wget -O- https://github.com/Frogging-Family/linux-tkg/archive/refs/heads/master.tar.gz | tar xzvf - && \
+RUN wget -O- https://github.com/Frogging-Family/linux-tkg/archive/master.tar.gz | tar xzvf - && \
     mv linux-tkg-master linux-tkg
-
-RUN curl https://github.com/Snoop05/linux-tkg/commit/9fff55f8b9c9d11af9102035af48bed8aea1982a.diff | patch -p1 -d linux-tkg
 
 WORKDIR /workspace/linux-tkg
 

@@ -15,7 +15,7 @@ USER builder
 
 RUN git clone https://github.com/Frogging-Family/community-patches.git --depth=1
 
-RUN wget -O- https://github.com/Frogging-Family/wine-tkg-git/archive/refs/heads/master.tar.gz | tar xzvf - && \
+RUN wget -O- https://github.com/Frogging-Family/wine-tkg-git/archive/master.tar.gz | tar xzvf - && \
     mv wine-tkg-git-master wine-tkg-git
 
 WORKDIR /workspace/wine-tkg-git/wine-tkg-git
