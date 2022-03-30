@@ -15,6 +15,8 @@ USER builder
 RUN wget -O- https://github.com/Frogging-Family/community-patches/archive/master.tar.gz | tar xzvf - && \
     mv community-patches-master community-patches
 
+RUN wget -O community-patches/linux517-tkg/lru_5.17.mypatch \
+      https://github.com/Frogging-Family/community-patches/raw/a99570b2c3fa85f69833cefb43997320a2894502/linux517-tkg/lru_5.17.mypatch
 
 RUN wget -O- https://github.com/Frogging-Family/linux-tkg/archive/master.tar.gz | tar xzvf - && \
     mv linux-tkg-master linux-tkg
